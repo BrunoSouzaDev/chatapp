@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { getCustomRepository } from "typeorm";
 
-import { SettingsRepository } from "./src/repositories/SettingsRepository";
+import { SettingsRepository } from "./repositories/SettingsRepository";
 
 
 const routes = Router();
