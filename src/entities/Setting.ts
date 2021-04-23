@@ -1,36 +1,32 @@
 import {
-    Entity,
-    Column,
-    CreateDateColumn,
-    UpdateDateColumn,
-    PrimaryColumn
-} from "typeorm"
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+import { v4 as uuidV4 } from 'uuid';
 
-import { v4 as uuid } from "uuid"
-
-@Entity("settings")
+@Entity('settings')
 class Setting {
+  @PrimaryColumn()
+  id: string;
 
-    @PrimaryColumn()
-    id: string;
+  @Column()
+  username: string;
 
-    @Column()
-    username: string;
+  @Column()
+  chat: boolean;
 
-    @Column()
-    chat: boolean;
+  @CreateDateColumn()
+  created_at: Date;
 
-    @UpdateDateColumn()
-    updated_at: Date;
+  @UpdateDateColumn()
+  updated_at: Date;
 
-    @CreateDateColumn()
-    created_at: Date;
-
-    constructor() {
-        if (!this.id) {
-            this.id = uuid();
-        }
-    }
+  constructor() {
+    if (!this.id) this.id = uuidV4();
+  }
 }
 
-export { Setting }
+export { Setting };
